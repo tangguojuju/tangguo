@@ -1,0 +1,54 @@
+git --version   查看git版本信息
+git config --global user.name "your_username"  配置用户名
+git config --global user.email "your_email"  配置邮箱
+git config --list 查看所有配置
+git init      在本地初始化本地仓库
+git status  查看工作目录与暂存区文件状态
+git add "文件名"    添加文件到暂存区
+git commit -m "文件说明"  提交暂存区文件到本地版仓库
+git log  用于显示提交日志信息
+git log --pretty=oneline   输出一行（唯一标识、说明）
+git reset --hard HEAD^    版本回退一个
+git reset --head "唯一标识"  回退|前进到具体版本
+git reflog 
+git ls-files   查看本地仓库的文件
+git cheakout “文件名” 下载文件从本地仓库
+git rm “文件名” 同时删除虚拟机 删除文件数据
+git clone https://*******.git   下载文件
+
+ssh下载
+1.ssh-keygen -t rsa -C “邮箱”生成密钥（私钥，公钥）
+2.ssh -T git@github.com   检查测试连接
+
+
+远程仓库推送
+1.git init 新建本地
+2.git add README.md
+3.git commit -m "first commit" 提交到本地
+4.git branch -M master 切换到master主干
+5.git remote add orgin git@github.com:zsyue/git01.git  连接远程仓库
+6.git push -u orgin master 推送文件到远程
+
+分支操作
+git cheakout branch     切换到指定分支
+git cheakout -b new_branch    新建分支并切换到新分支
+git branch -d branch     删除指定分支
+git branch         查看所有分支
+git merge branch  合并分支
+git branch -m|-M oldbranch newbranch   重命名分支 -M强制 
+
+git branch -a 查看本地与远程分支
+git push origin branch_name   推送本地分支到远程
+git push origin ：remote_branch     删除远程分支（本地分支还在保留）
+git checkout -b local_branch origin/remote_branch      拉取远程指定分支并在本地创建分支
+git fetch  获取远程分支最新状态
+
+
+标签管理：
+git tag tag_name     新建标签 默认为HEAD
+git tag -a tag_name -m "xxx"  添加标签到指定描述信息
+git tag       查看所有标签
+git tag -d tag_name     删除一个本地标签
+git push origin tag_name    推送本地标签到远程
+git push origin --tags    推送全部未推送的本地标签到远程
+git push origin :refs/tags/tag_name     删除一个远程标签
